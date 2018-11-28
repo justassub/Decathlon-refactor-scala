@@ -3,7 +3,7 @@ package model
 import service.Calculator
 
 
-object Events extends Enumeration {
+object Events {
   val tracking = "TRACKING";
   val throwing = "THROWING";
   val jumping = "JUMPING";
@@ -23,7 +23,7 @@ object Events extends Enumeration {
 
   case class Event(aValue: Double, bValue: Double, cValue: Double, event: String) {
 
-    def calculatePoints(scores: Double): Double = {
+    def calculatePoints(scores: Double) = {
       event match {
         case Events.tracking => Calculator.trackingEventPointCalculator(aValue, bValue, cValue, scores)
         case _ => 0
