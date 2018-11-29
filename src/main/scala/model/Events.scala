@@ -26,6 +26,8 @@ object Events {
     def calculatePoints(scores: Double) = {
       event match {
         case Events.tracking => Calculator.trackingEventPointCalculator(aValue, bValue, cValue, scores)
+        case Events.jumping => Calculator.fieldEventPointCalculator(aValue, bValue, cValue, scores * 100)
+        case Events.throwing => Calculator.fieldEventPointCalculator(aValue, bValue, cValue, scores)
         case _ => 0
       }
     }
